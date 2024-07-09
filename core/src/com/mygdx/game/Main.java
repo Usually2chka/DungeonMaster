@@ -1,17 +1,14 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.mygdx.game.Screens.StartScreens.MainMenu;
+import com.mygdx.game.Screens.UserInterfaceScreens.LoadScreen;
+import com.mygdx.game.Screens.UserInterfaceScreens.MainMenu;
 
 public class Main extends Game {
 	
 	@Override
 	public void create () {
-		MainMenu screen = new MainMenu();
+		LoadScreen screen = new LoadScreen();
 		this.setScreen(screen);
 	}
 

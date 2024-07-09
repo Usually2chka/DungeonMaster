@@ -1,4 +1,4 @@
-package com.mygdx.game.Screens.StartScreens;
+package com.mygdx.game.Screens.UserInterfaceScreens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -10,23 +10,27 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Managers.TextureManager;
 
 
 public class MainMenu implements Screen {
 
     private Stage stage;
-    private Viewport viewport = new StretchViewport(600, 300);
+    private Viewport viewport = new StretchViewport(420, 180);
     private Texture none;
     private Texture click;
-    public MainMenu()
+
+    //private TextureManager manager = new TextureManager();
+
+    public MainMenu(TextureManager manager)
     {
         stage = new Stage(viewport);
+        manager.loadingAll();
 
-        none = new Texture("StartGame190x46.png");
-        click = new Texture("StartGame_Click190x46.png");
+        none = manager.getStartGameButton();
+        click = manager.getStartGameClickButton();
 
         Drawable noneDr = new TextureRegionDrawable(new TextureRegion(none));
         Drawable clickDr = new TextureRegionDrawable(new TextureRegion(click));
@@ -48,7 +52,6 @@ public class MainMenu implements Screen {
         ScreenUtils.clear(1, 0.5f, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(delta);
-
         stage.draw();
     }
 
